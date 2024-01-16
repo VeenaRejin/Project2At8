@@ -1,6 +1,7 @@
 package page;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -101,6 +102,32 @@ public class ProjectPage {
     return actual;   
    
 }
+	
+	
+	public String search(String search) 
+	{
+		waitutil.WaitVisibility(searchproject);
+		searchproject.sendKeys(search);
+		By locator=By.xpath("//table[@id='note-table']//tbody//tr//td//a[contains(text(),'"+search+"')]");
+		waitutil.WaitVisibility(locator);
+		List<WebElement> notetable=driver.findElements(By.xpath("//table[@id='note-table']//tbody//tr//td//a[contains(text(),'"+search+"')]"));
+		waitutil.WaitVisibility(notetable);
+	int row=elementutil.getTableDataRowCount(notetable, search);
+		String message="";
+		if(row!=0) 
+		{
+			WebElement tableRow=driver.findElement(By.xpath("//table[@id='note-table']//tbody//tr["+row+"]//td[2]"));
+			message=tableRow.getText();
+			System.out.println(message);
+			
+		}
+		return message;
+		  
+	}
+	
+	
+	
+	
 	
 	
 	public String doupdate(String search,String updatedtitle)
