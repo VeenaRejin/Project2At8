@@ -35,7 +35,7 @@ public class NoteTest extends BaseTest{
 	  NotePage np=new NotePage(driver);
 	 // np.doNote();
 	  
-	  String actual=np.search("Automation Testing");
+	  String actual=np.searchnote("Automation Testing");
 	  String expected="Automation Testing";
 	  Assert.assertEquals(actual, expected);
 	 

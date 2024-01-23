@@ -105,7 +105,7 @@ public class NotePage {
 	
 	
 	
-	public String search(String search) 
+	public String searchnote(String search) 
 	{
 		waitutil.WaitVisibility(searchnote);
 		searchnote.sendKeys(search);

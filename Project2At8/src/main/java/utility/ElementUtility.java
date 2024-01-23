@@ -46,14 +46,14 @@ public class ElementUtility {
 		      Properties prop = null;
 		     
 		      
-		     String fileName=Constant.propertiespath;
+		     String fileName=Constant.propertiespath; //get file path
 		      String value=null;
 		      
 		      try {
-		         fis = new FileInputStream(fileName);
+		         fis = new FileInputStream(fileName);    //open file
 		         prop = new Properties();
-		         prop.load(fis);
-		         value=prop.getProperty(key);
+		         prop.load(fis);  //load properties
+		         value=prop.getProperty(key);   // get the value
 		      } catch(FileNotFoundException fnfe) {
 		         fnfe.printStackTrace();
 		      } catch(IOException ioe) {
